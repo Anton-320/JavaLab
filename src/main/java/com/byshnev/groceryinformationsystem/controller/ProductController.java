@@ -1,6 +1,8 @@
 package com.byshnev.groceryinformationsystem.controller;
 
 import com.byshnev.groceryinformationsystem.model.Product;
+import com.byshnev.groceryinformationsystem.model.typesOfProducts.PieceProduct;
+import com.byshnev.groceryinformationsystem.model.typesOfProducts.ProductByWeight;
 import com.byshnev.groceryinformationsystem.service.impl.ProductServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +21,14 @@ public class ProductController {
 		return service.findAllProducts();
 	}
 
-	@PostMapping
-	public void addProduct(Product product) {
-		service.addProduct(product);
+	@PostMapping("/byWeight")
+	public void addProductByWeight(ProductByWeight product) {
+		service.addProductByWeight(product);
+	}
+
+	@PostMapping("/piece")
+	public void addPieceProduct(PieceProduct product) {
+		service.addPieceProduct(product);
 	}
 
 	@GetMapping
@@ -33,5 +40,4 @@ public class ProductController {
 	public void deleteProduct(String name) {
 		service.deleteProduct(name);
 	}
-
 }
