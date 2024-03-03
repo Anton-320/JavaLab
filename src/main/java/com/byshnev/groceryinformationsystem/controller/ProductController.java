@@ -21,6 +21,11 @@ public class ProductController {
 		return service.findAllProducts();
 	}
 
+	@GetMapping
+	public Product findProduct(@RequestParam String name) {
+		return service.findProduct(name);
+	}
+
 	@PostMapping("/byWeight")
 	public void addProductByWeight(ProductByWeight product) {
 		service.addProductByWeight(product);
@@ -29,11 +34,6 @@ public class ProductController {
 	@PostMapping("/piece")
 	public void addPieceProduct(PieceProduct product) {
 		service.addPieceProduct(product);
-	}
-
-	@GetMapping
-	public Product findProduct(@RequestParam String name) {
-		return service.findProduct(name);
 	}
 
 	@DeleteMapping

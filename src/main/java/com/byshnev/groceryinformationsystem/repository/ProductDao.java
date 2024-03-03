@@ -23,6 +23,20 @@ public class ProductDao {
 		return productByWeightList;
 	}
 
+	public Product findProduct(String productName) {
+		PieceProduct tmp = pieceProductList.stream()
+				.filter(element->element.getName().equals(productName))
+				.findFirst()
+				.orElse(null);
+		if (tmp == null) {
+			return productByWeightList.stream()
+					.filter(element->element.getName().equals(productName))
+					.findFirst()
+					.orElse(null);
+		}
+		return tmp;
+	}
+
 	public void addPieceProduct(PieceProduct product) {
 		pieceProductList.add(product);
 	}
@@ -31,18 +45,8 @@ public class ProductDao {
 		productByWeightList.add(product);
 	}
 
-	public Product findProduct(String productName) {
-		PieceProduct tmp = pieceProductList.stream()
-				.filter(element->element.getName().equals(productName))
-				.findFirst()
-				.orElse(null);
-		if (tmp == null) {
-			return productByWeightList.stream()
-				.filter(element->element.getName().equals(productName))
-				.findFirst()
-				.orElse(null);
-		}
-		return tmp;
+	public void updateProduct(Product product) {
+
 	}
 
 	public void deleteProduct(String name) {
