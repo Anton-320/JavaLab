@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Repository
 @Data
@@ -45,8 +46,28 @@ public class ProductDao {
 		productByWeightList.add(product);
 	}
 
-	public void updateProduct(Product product) {
+	public PieceProduct updatePieceProduct(PieceProduct product) {
+		var index = IntStream.range(0, pieceProductList.size())
+				.filter(ind->pieceProductList.get(ind).getName().equals(product.getName()))
+				.findFirst()
+				.orElse(-1);
+		if (index > -1) {
+			pieceProductList.set(index, product);
+			return product;
+		}
+		else return null;
+	}
 
+	public ProductByWeight updateProductByWeight(ProductByWeight product) {
+		var index = IntStream.range(0, productByWeightList.size())
+				.filter(ind->productByWeightList.get(ind).getName().equals(product.getName()))
+				.findFirst()
+				.orElse(-1);
+		if (index > -1) {
+			productByWeightList.set(index, product);
+			return product;
+		}
+		else return null;
 	}
 
 	public void deleteProduct(String name) {

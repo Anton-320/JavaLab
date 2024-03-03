@@ -21,23 +21,33 @@ public class ProductController {
 		return service.findAllProducts();
 	}
 
-	@GetMapping
-	public Product findProduct(@RequestParam String name) {
-		return service.findProduct(name);
+	@GetMapping("/{name}")
+	public Product findProduct(@PathVariable("name") String productName) {
+		return service.findProduct(productName);
 	}
 
 	@PostMapping("/byWeight")
-	public void addProductByWeight(ProductByWeight product) {
+	public void addProductByWeight(@RequestBody ProductByWeight product) {
 		service.addProductByWeight(product);
 	}
 
 	@PostMapping("/piece")
-	public void addPieceProduct(PieceProduct product) {
+	public void addPieceProduct(@RequestBody PieceProduct product) {
 		service.addPieceProduct(product);
 	}
 
-	@DeleteMapping
-	public void deleteProduct(String name) {
-		service.deleteProduct(name);
+	@PutMapping("/update_piece_prod")
+	public PieceProduct updatePieceProduct(PieceProduct product) {
+		return service.updatePieceProduct(product);
+	}
+
+	@PutMapping("/update_prod_by_weight")
+	public ProductByWeight updateProductByWeight(ProductByWeight product) {
+		return service.updateProductByWeight(product);
+	}
+
+	@DeleteMapping("/delete/{name}")
+	public void deleteProduct(@PathVariable("name") String productName) {
+		service.deleteProduct(productName);
 	}
 }

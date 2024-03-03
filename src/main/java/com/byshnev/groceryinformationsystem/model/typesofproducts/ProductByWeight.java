@@ -7,5 +7,4 @@ import lombok.Data;
 public class ProductByWeight extends Product {
 	private float costForKilo;
 	private int amountOfKilo;
-
 }

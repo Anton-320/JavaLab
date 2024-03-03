@@ -26,10 +26,12 @@ public class ProductServiceImpl implements ProductService {
 		return tmp;
 	}
 
+	@Override
 	public void addPieceProduct(PieceProduct product) {
 		repository.addPieceProduct(product);
 	}
 
+	@Override
 	public void addProductByWeight(ProductByWeight product) {
 		repository.addProductByWeight(product);
 	}
@@ -37,6 +39,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product findProduct(String name) {
 		return repository.findProduct(name);
+	}
+
+	@Override
+	public PieceProduct updatePieceProduct(PieceProduct product) {
+		return repository.updatePieceProduct(product);
+	}
+
+	@Override
+	public ProductByWeight updateProductByWeight(ProductByWeight product) {
+		return repository.updateProductByWeight(product);
 	}
 
 	@Override

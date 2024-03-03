@@ -12,6 +12,8 @@ public interface ProductService {
 	public void addPieceProduct(PieceProduct product);
 	public void addProductByWeight(ProductByWeight product);
 	public Product findProduct(String name);
+	public PieceProduct updatePieceProduct(PieceProduct product);
+	public ProductByWeight updateProductByWeight(ProductByWeight product);
 	public void deleteProduct(String name);
 
 }
