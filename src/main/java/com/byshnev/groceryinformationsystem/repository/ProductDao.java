@@ -37,17 +37,17 @@ public class ProductDao {
 				.findFirst()
 				.orElse(null);
 		if (tmp == null) {
-			return productByWeightList.stream()
+			return (ProductByWeight) productByWeightList.stream()
 				.filter(element->element.getName().equals(productName))
 				.findFirst()
 				.orElse(null);
 		}
-		return tmp;
+		return (PieceProduct) tmp;
 	}
 
 	public void deleteProduct(String name) {
-		pieceProductList.remove(findProduct(name));
-		productByWeightList.remove(findProduct(name));
+		pieceProductList.remove((PieceProduct) findProduct(name));
+		productByWeightList.remove((ProductByWeight) findProduct(name));
 	}
 
 
