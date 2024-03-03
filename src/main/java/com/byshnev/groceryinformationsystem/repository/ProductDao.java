@@ -1,8 +1,8 @@
 package com.byshnev.groceryinformationsystem.repository;
 
 import com.byshnev.groceryinformationsystem.model.Product;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.PieceProduct;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.ProductByWeight;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
 import lombok.Data;
 import org.springframework.stereotype.Repository;
 
@@ -37,17 +37,17 @@ public class ProductDao {
 				.findFirst()
 				.orElse(null);
 		if (tmp == null) {
-			return (ProductByWeight) productByWeightList.stream()
+			return productByWeightList.stream()
 				.filter(element->element.getName().equals(productName))
 				.findFirst()
 				.orElse(null);
 		}
-		return (PieceProduct) tmp;
+		return tmp;
 	}
 
 	public void deleteProduct(String name) {
-		pieceProductList.remove((PieceProduct) findProduct(name));
-		productByWeightList.remove((ProductByWeight) findProduct(name));
+		pieceProductList.remove(findProduct(name));
+		productByWeightList.remove(findProduct(name));
 	}
 
 

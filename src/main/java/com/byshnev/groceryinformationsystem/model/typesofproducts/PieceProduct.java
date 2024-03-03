@@ -1,4 +1,4 @@
-package com.byshnev.groceryinformationsystem.model.typesOfProducts;
+package com.byshnev.groceryinformationsystem.model.typesofproducts;
 
 import com.byshnev.groceryinformationsystem.model.Product;
 import lombok.Data;

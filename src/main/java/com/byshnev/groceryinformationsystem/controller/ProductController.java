@@ -1,8 +1,8 @@
 package com.byshnev.groceryinformationsystem.controller;
 
 import com.byshnev.groceryinformationsystem.model.Product;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.PieceProduct;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.ProductByWeight;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
 import com.byshnev.groceryinformationsystem.service.impl.ProductServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

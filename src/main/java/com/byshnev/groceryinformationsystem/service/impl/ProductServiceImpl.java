@@ -1,8 +1,8 @@
 package com.byshnev.groceryinformationsystem.service.impl;
 
 import com.byshnev.groceryinformationsystem.model.Product;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.PieceProduct;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.ProductByWeight;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
 import com.byshnev.groceryinformationsystem.repository.ProductDao;
 import com.byshnev.groceryinformationsystem.service.ProductService;
 import lombok.NonNull;

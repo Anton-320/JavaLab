@@ -1,8 +1,8 @@
 package com.byshnev.groceryinformationsystem.service;
 
 import com.byshnev.groceryinformationsystem.model.Product;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.PieceProduct;
-import com.byshnev.groceryinformationsystem.model.typesOfProducts.ProductByWeight;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
+import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
 
 import java.util.List;
 
