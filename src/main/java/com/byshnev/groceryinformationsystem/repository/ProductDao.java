@@ -33,12 +33,12 @@ public class ProductDao {
 
 	public Product findProduct(String productName) {
 		PieceProduct tmp = pieceProductList.stream()
-				.filter(name->name.equals(productName))
+				.filter(element->element.getName().equals(productName))
 				.findFirst()
 				.orElse(null);
 		if (tmp == null) {
 			return productByWeightList.stream()
-				.filter(name->name.equals(productName))
+				.filter(element->element.getName().equals(productName))
 				.findFirst()
 				.orElse(null);
 		}
