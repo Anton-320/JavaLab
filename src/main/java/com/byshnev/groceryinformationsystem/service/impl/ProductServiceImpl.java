@@ -18,8 +18,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public BothListsDto findAllProducts() {
-		BothListsDto dto = new BothListsDto(repository.getPieceProductList(), repository.getProductByWeightList());
-		return dto;
+		return new BothListsDto(repository.getPieceProductList(), repository.getProductByWeightList());
 	}
 
 	@Override
