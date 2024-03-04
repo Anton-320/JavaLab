@@ -8,9 +8,6 @@ import com.byshnev.groceryinformationsystem.service.impl.ProductServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
-
 @RestController
 @RequestMapping("/api/v1/prod")
 @AllArgsConstructor
