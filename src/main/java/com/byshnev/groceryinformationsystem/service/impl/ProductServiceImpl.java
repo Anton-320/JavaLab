@@ -1,5 +1,6 @@
 package com.byshnev.groceryinformationsystem.service.impl;
 
+import com.byshnev.groceryinformationsystem.dto.BothListsDto;
 import com.byshnev.groceryinformationsystem.model.Product;
 import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
 import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
@@ -9,27 +10,16 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 	@NonNull
 	private ProductDao repository;
 
-//	@Override
-//	public BothListsDto findAllProducts() {
-//		BothListsDto dto = new BothListsDto(repository.getPieceProductList(), repository.getProductByWeightList());
-//		return dto;
-//	}
-
 	@Override
-	public Map<String, Product> findAllProducts() {
-		Map<String, Product> map = new HashMap<>();
-		map.put("Поштучные продукты", (Product) repository.getPieceProductList());
-		map.put("Продукты наразвес", (Product) repository.getProductByWeightList());
-		return map;
+	public BothListsDto findAllProducts() {
+		BothListsDto dto = new BothListsDto(repository.getPieceProductList(), repository.getProductByWeightList());
+		return dto;
 	}
 
 	@Override

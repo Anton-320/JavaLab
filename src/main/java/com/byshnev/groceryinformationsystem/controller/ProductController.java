@@ -18,13 +18,8 @@ public class ProductController {
 
 	private ProductServiceImpl service;
 
-//	@GetMapping("/all")
-//	public BothListsDto findAllProducts() {
-//		return service.findAllProducts();
-//	}
-
 	@GetMapping("/all")
-	public Map<String, Product> findAllProducts() {
+	public BothListsDto findAllProducts() {
 		return service.findAllProducts();
 	}
 
