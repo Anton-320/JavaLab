@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -19,12 +18,18 @@ public class ProductServiceImpl implements ProductService {
 	@NonNull
 	private ProductDao repository;
 
+//	@Override
+//	public BothListsDto findAllProducts() {
+//		BothListsDto dto = new BothListsDto(repository.getPieceProductList(), repository.getProductByWeightList());
+//		return dto;
+//	}
+
 	@Override
-	public Map<String, List<? extends Product>> findAllProducts() {
-		Map<String, List<? extends Product>> tmp = new HashMap<>();
-		tmp.put("PieceProducts", repository.getPieceProductList());
-		tmp.put("ProductsByWeight", repository.getProductByWeightList());
-		return tmp;
+	public Map<String, Product> findAllProducts() {
+		Map<String, Product> map = new HashMap<>();
+		map.put("Поштучные продукты", (Product) repository.getPieceProductList());
+		map.put("Продукты наразвес", (Product) repository.getProductByWeightList());
+		return map;
 	}
 
 	@Override
