@@ -16,14 +16,6 @@ public class ProductDao {
 	private List<PieceProduct> pieceProductList = new ArrayList<>();
 	private List<ProductByWeight> productByWeightList = new ArrayList<>();
 
-	public List<PieceProduct> findAllPieceProducts() {
-		return pieceProductList;
-	}
-
-	public List<ProductByWeight> findAllProductsByWeight() {
-		return productByWeightList;
-	}
-
 	public Product findProduct(String productName) {
 		PieceProduct tmp = pieceProductList.stream()
 				.filter(element->element.getName().equals(productName))
@@ -38,12 +30,14 @@ public class ProductDao {
 		return tmp;
 	}
 
-	public void addPieceProduct(PieceProduct product) {
+	public PieceProduct addPieceProduct(PieceProduct product) {
 		pieceProductList.add(product);
+		return product;
 	}
 
-	public void addProductByWeight(ProductByWeight product) {
+	public ProductByWeight addProductByWeight(ProductByWeight product) {
 		productByWeightList.add(product);
+		return product;
 	}
 
 	public PieceProduct updatePieceProduct(PieceProduct product) {

@@ -3,15 +3,13 @@ package com.byshnev.groceryinformationsystem.model;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @Data
 public class Product {
 	private String name;
 	private String manufacturer;
-	private Date dateOfManufacturing;
-	private int expirationDatePeriod;	//Срок годности в днях
-
-
+	private LocalDate dateOfManufacturing;
+	private LocalDate expirationDatePeriod;	//Срок годности в днях
 }

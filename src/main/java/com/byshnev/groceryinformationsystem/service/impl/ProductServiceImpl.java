@@ -9,8 +9,9 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -19,10 +20,10 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao repository;
 
 	@Override
-	public List<Product> findAllProducts() {
-		List<Product> tmp = new ArrayList<>();
-		tmp.addAll(repository.findAllPieceProducts());
-		tmp.addAll(repository.findAllProductsByWeight());
+	public Map<String, List<? extends Product>> findAllProducts() {
+		Map<String, List<? extends Product>> tmp = new HashMap<>();
+		tmp.put("PieceProducts", repository.getPieceProductList());
+		tmp.put("ProductsByWeight", repository.getProductByWeightList());
 		return tmp;
 	}
 

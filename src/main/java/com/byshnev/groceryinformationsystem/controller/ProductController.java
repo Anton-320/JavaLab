@@ -4,10 +4,18 @@ import com.byshnev.groceryinformationsystem.model.Product;
 import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
 import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
 import com.byshnev.groceryinformationsystem.service.impl.ProductServiceImpl;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.apache.tomcat.util.json.JSONParser;
+import org.apache.tomcat.util.json.ParseException;
+import org.springframework.boot.json.JsonParser;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/prod")
@@ -17,7 +25,7 @@ public class ProductController {
 	private ProductServiceImpl service;
 
 	@GetMapping("/all")
-	public List<Product> findAllProducts() {
+	public Map<String, List<? extends Product>> findAllProducts() {
 		return service.findAllProducts();
 	}
 

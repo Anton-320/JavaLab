@@ -5,10 +5,11 @@ import com.byshnev.groceryinformationsystem.model.typesofproducts.PieceProduct;
 import com.byshnev.groceryinformationsystem.model.typesofproducts.ProductByWeight;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductService {
 
-	public List<Product> findAllProducts();
+	public Map<String, List<? extends Product>> findAllProducts();
 	public void addPieceProduct(PieceProduct product);
 	public void addProductByWeight(ProductByWeight product);
 	public Product findProduct(String name);
